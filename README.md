@@ -17,13 +17,13 @@ A dropdown on the left side under the search bar that provides dashboard links.
 A dropdown button on the right side called 'new tasks' with a dropdown of clickable new items e.g. new matter, new contact, new bill, new communication, new calendar event, new document upload...
 
 Starter ERD:
-![ERD](https://i.imgur.com/pb28IwQ.png)
+![ERD]("https://i.imgur.com/pb28IwQ.png" width="400")
 
 Wireframes:
-![WireFrame1](https://i.imgur.com/N0Jb1tt.jpg)
-![WireFrame2](https://i.imgur.com/nY0PiWJ.jpg)
-![WireFrame3](https://i.imgur.com/czr1wV8.jpg)
-![WireFrame4](https://i.imgur.com/H0Rw1tM.jpg)
-![WireFrame5](https://i.imgur.com/A1VgaLe.jpg)
+![WireFrame1]("https://i.imgur.com/N0Jb1tt.jpg" width="200")
+![WireFrame2]("https://i.imgur.com/nY0PiWJ.jpg" width="200") 
+![WireFrame3]("https://i.imgur.com/czr1wV8.jpg" width="200")
+![WireFrame4]("https://i.imgur.com/H0Rw1tM.jpg" width="200")
+![WireFrame5]("https://i.imgur.com/A1VgaLe.jpg" width="200")
 
 
