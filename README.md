@@ -17,7 +17,7 @@ A dropdown on the left side under the search bar that provides dashboard links.
 A dropdown button on the right side called 'new tasks' with a dropdown of clickable new items e.g. new matter, new contact, new bill, new communication, new calendar event, new document upload...
 
 Starter ERD:
-![ERD]("https://i.imgur.com/pb28IwQ.png" width="400")
+![ERD]("https://i.imgur.com/pb28IwQ.png" =250x)
 
 Wireframes:
 ![WireFrame1]("https://i.imgur.com/N0Jb1tt.jpg" width="200")
