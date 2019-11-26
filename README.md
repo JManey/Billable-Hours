@@ -18,3 +18,12 @@ A dropdown button on the right side called 'new tasks' with a dropdown of clicka
 
 Starter ERD:
 ![ERD](https://i.imgur.com/pb28IwQ.png)
+
+Wireframes:
+![WireFrame1](https://i.imgur.com/N0Jb1tt.jpg)
+![WireFrame2](https://i.imgur.com/nY0PiWJ.jpg)
+![WireFrame3](https://i.imgur.com/czr1wV8.jpg)
+![WireFrame4](https://i.imgur.com/H0Rw1tM.jpg)
+![WireFrame5](https://i.imgur.com/A1VgaLe.jpg)
+
+
