@@ -42,4 +42,16 @@
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
           </div>
+          <ul class="right">
+              <li>
+              <% if (user) { %>
+                <a href="/logout"><i class="btn btn-danger" role="button"></i>Log Out</a>
+              <% } else { %>
+                <a href="/auth/google"><i class="btn btn-primary" role="button"></i>Login with Google</a>
+              <% } %>
+              </li>
+            </ul>
+            
+
         </nav>
+        
