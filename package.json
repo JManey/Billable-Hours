@@ -8,14 +8,23 @@
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "express-session": "^1.17.0",
+<<<<<<< HEAD
     "googleapis": "^45.0.0",
+=======
+>>>>>>> 410fa5f0fd184a3efa3cc317b2b5e55b1643fa8c
     "http-errors": "~1.6.3",
     "mongoose": "^5.7.12",
     "morgan": "~1.9.1",
     "passport": "^0.4.0",
+<<<<<<< HEAD
     "passport-google-oauth20": "^2.0.0"
+=======
+    "passport-google-oauth": "^2.0.0",
+    "request": "^2.88.0"
+>>>>>>> 410fa5f0fd184a3efa3cc317b2b5e55b1643fa8c
   }
 }

@@ -18,7 +18,11 @@ module.exports = {
 // }
 
 function newUser(req, res) {
-  res.render('users/new', {title: "Add New User"})
+  res.render('users/new', {
+    title: "Add New User",
+    user: req.user,
+    name: req.query.name,
+  })
 }
 
 function create(req, res) {

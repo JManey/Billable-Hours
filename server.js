@@ -4,10 +4,14 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
+<<<<<<< HEAD
 const router = express.Router();
 
 
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+=======
+
+>>>>>>> 410fa5f0fd184a3efa3cc317b2b5e55b1643fa8c
 const logger = require('morgan');
 require('dotenv').config();
 
@@ -38,12 +42,16 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+<<<<<<< HEAD
 
 app.get('/logout', function(req, res){
   req.logout();
   console.log('logged out.......................')
   res.redirect('/');
 });
+=======
+app.use(express.static(path.join(__dirname, 'public')));
+>>>>>>> 410fa5f0fd184a3efa3cc317b2b5e55b1643fa8c
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
