@@ -5,7 +5,7 @@ const usersCtrl = require('../controllers/users');
 
 /* GET users listing. */
 // router.get('/', usersCtrl.index);
-// router.post('/', usersCtrl.create);
+router.post('/', usersCtrl.create);
 router.get('/new', usersCtrl.new);
 // router.get('/:id', usersCtrl.show);
 // router.get('/:id/edit', usersCtrl.edit);

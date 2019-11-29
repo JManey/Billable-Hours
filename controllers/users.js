@@ -26,7 +26,8 @@ function newUser(req, res) {
 }
 
 function create(req, res) {
+  console.log(req.body);
   User.create(req.body, function(err, user) {
-    res.redirect('/users/new');
+    res.redirect('/');
   })
 }

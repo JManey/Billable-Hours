@@ -1,12 +1,8 @@
 const User = require('../models/user');
-const passport = require('passport');
 
 
 module.exports = {
   index,
-  auth,
-  authCB,
-  logOut,
 }
 
 function index(req, res, next) {
@@ -18,20 +14,4 @@ function index(req, res, next) {
    });
 }
 
-function auth(req, res, next) {
-  passport.authenticate(
-    'google', { scope: ['profile','email'] })
-  };
 
-function authCB(req, res, next) {
-  passport.authenticate('google',
-    {
-      successRedirect : '/users/new',
-      failureRedirect : '/users/new'
-    }
-  )};
-
-  function logOut(req, res){
-    req.logout();
-    res.redirect('/users');
-  };

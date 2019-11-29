@@ -4,31 +4,25 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
-<<<<<<< HEAD
-const router = express.Router();
-
-
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
-=======
-
->>>>>>> 410fa5f0fd184a3efa3cc317b2b5e55b1643fa8c
 const logger = require('morgan');
-require('dotenv').config();
+const methodOverride = require('method-override')
 
+require('dotenv').config();
+const app = express();
 //connect to mongodb
 require('./config/database');
 require('./config/passport');
 
+
+      // routers //
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
-const app = express();
-
-// view engine setup
+    // view engine setup //
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(express.static(path.join(__dirname, 'public')));
+     // middle wares  ////
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -41,44 +35,16 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-
-<<<<<<< HEAD
-
-app.get('/logout', function(req, res){
-  req.logout();
-  console.log('logged out.......................')
-  res.redirect('/');
-});
-=======
 app.use(express.static(path.join(__dirname, 'public')));
->>>>>>> 410fa5f0fd184a3efa3cc317b2b5e55b1643fa8c
+app.use(methodOverride('_method'))
 
+
+   //  routes   //
 app.use('/', indexRouter);
+// app.use('/', authRouter);
 app.use('/users', usersRouter);
 
-//   /////////  oauth 2 ///////////////
-app.get('/auth/google',
-  passport.authenticate('google', { scope: ['profile'] }));
 
-  //'/auth/google/callback'
-app.get('/oauth2callback', 
-  passport.authenticate('google', { failureRedirect: '/' }),
-  function(req, res) {
-    console.log('logged in Yay!!!!!!!!!!!!!!!!!')
-    // Successful authentication, redirect home.
-    res.redirect('/');
-  });
-
-
-  // router.get('/oauth2callback', passport.authenticate(
-  //   'google',
-  //   {
-  //     successRedirect : '/index',
-  //     failureRedirect : '/index'
-  //   }
-  // ));
-
-//////////////////////////
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
