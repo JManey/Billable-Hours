@@ -7,23 +7,27 @@
 <form action="/users" method="POST">
     <div class="form-group">
       <label for="name">Name</label>
-      <input type="name" class="form-control" value="name" placeholder="First Last">
+      <input type="name" class="form-control" name="name" placeholder="First Last">
     </div>
     <div class="form-group">
       <label for="name">Phone Number</label>
-      <input type="phone" class="form-control" value="name" placeholder="(512) 123-6789">
+      <input type="phone" class="form-control" name="phone" placeholder="(512) 123-6789">
     </div>
     <div class="form-group">
       <label for="name">Address</label>
-      <input type="name" class="form-control" value="address" placeholder="123 Easy St. Austin, TX 78748">
+      <input type="name" class="form-control" name="address" placeholder="123 Easy St. Austin, TX 78748">
     </div>
     <div class="form-group">
       <label for="exampleFormControlInput1">Email address</label>
-      <input type="email" class="form-control" value="email" placeholder="name@example.com">
+      <input type="email" class="form-control" name="email" placeholder="name@example.com">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Pay Rate</label>
+      <input type="number" class="form-control" name="payRate" placeholder="$00.00">
     </div>
     <div class="form-group">
       <label for="exampleFormControlSelect1">Job Title</label>
-      <select class="form-control" value="title">
+      <select class="form-control" name="title">
         <option>Receptionist</option>
         <option>Paralegal</option>
         <option>Attorney</option>
