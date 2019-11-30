@@ -1,27 +1,28 @@
 <%- include('../partials/header') %>
 
 
-<h1>User Details</h1>
-<p>Welcome to Billable Hours</p>
+<h1 class="text-center">User Details</h1>
+<p class="text-center">Welcome to Billable Hours</p>
 
 <div class="card" style="width: 18rem;">
   <img src="<%=  user.avatar %>" class="card-img-top" alt="user image">
   <div class="card-body">
-    <h5 class="card-title"> <%= user.name %> </h5>
-    <p class="card-text">Comments: </p>
+    <h5 class="card-title form-control text-center"><%= user.name %></h5>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item"><%=user.address %></li>
-    <li class="list-group-item"><%=user.phone %></li>
-    <li class="list-group-item"><%=user.email %></li>
-    <li class="list-group-item"><%=user.title %></li>
-    <li class="list-group-item"><%=user.payRate %></li>
-    <li class="list-group-item"><%=user.isAdmin %></li>
+    <li class="form-control">Address: <%=user.address %></li>
+    <li class="form-control">Phone:    <%=user.phone %></li>
+    <li class="form-control">Email:  <%=user.email %></li>
+    <li class="form-control">Title:  <%=user.title %></li>
+    <li class="form-control">Pay Rate:     <%=user.payRate %></li>
+    <li class="form-control">Admin:    <%=user.isAdmin %></li>
   </ul>
   <div class="card-body">
-    <a href="/users/<%= user._id %>/edit" class="card-link">Edit User</a>
-    <form action="/users/<%= user._id %>?_method=DELETE" method="POST" class="card-link">
-      <button type="submit">Remove User</button>
+    <a href="/users/<%= user._id %>/edit" class="btn btn-info">Edit User</a>
+
+    <form action="/users/<%= user._id %>?_method=DELETE" method="POST" class=""><button class ="btn btn-danger" type="submit">Remove User</button>
+    
+      
     
   </div>
 </div>

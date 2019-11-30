@@ -1,21 +1,21 @@
 <%- include('../partials/header') %>
 
 
-<h1>Users</h1>
-<p>Welcome to Billable Hours</p>
+<h1 class="text-center">Users</h1>
+<p class="text-center">Welcome to Billable Hours</p>
 
+<div class="row">
 <% users.forEach(function(user) { %>
-  <tr>
-    <td><a href="users/<%= user._id %>">View</a></td>
-    <td><%= user.name %></td>
-    <td><%= user.payRate %></td>
-    <td><%= user.isAdmin %></td>
-    <td><%= user.avatar %></td>
-  </tr>
-  <br>
-  <% }); %>
-</tbody>
-</table>
+    <div class="card" style="width: 18rem;">
+      <img src="<%=  user.avatar %>" class="card-img-top" alt="user image">
+      <div class="card-body">
+        <h5 class="card-title"> <%= user.name %> </h5>
+      </div>
+      <a href="users/<%= user._id %>" class="btn btn-success">View</a>
+    </div>
+    <% }); %>
+  </div>
+
 
 
 <%- include('../partials/footer') %>
