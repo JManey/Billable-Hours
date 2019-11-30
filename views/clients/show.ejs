@@ -15,6 +15,12 @@
   <div class="card-body">
     <a href="/clients/<%= client._id %>/edit" class="btn btn-info">Edit Client</a>
 
+  <div class="card-body">
+    <a href="/clients/<%= client._id %>/matters/new" class="btn btn-info">New Matter</a>
+
+  <div class="card-body">
+    <a href="/clients/<%= client._id %>/matters" class="btn btn-info">View Matters</a>
+
     <form action="/clients/<%= client._id %>?_method=DELETE" method="POST" class=""><button class ="btn btn-danger" type="submit">Remove Client</button>
     
       
