@@ -11,6 +11,7 @@ module.exports = {
   delete: deleteClient,
   isAdmin,
   isLoggedIn,
+  // viewMatters,
 }
 
 function index(req, res) {
@@ -97,3 +98,7 @@ function isAdmin(req, res, next) {
     })
   }
 }
+
+// function viewMatters(req, res) {
+//   User.findOne({googleId: req.user.googleId}, function(err, user)
+// }

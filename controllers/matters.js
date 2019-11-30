@@ -5,6 +5,7 @@ module.exports = {
   
   new: newMatter,
   create,
+  show,
   isLoggedIn,
   isAdmin,
   
@@ -31,6 +32,23 @@ function newMatter(req, res) {
   })
 }
 
+function show(req, res) {
+  let id = req.params.id;
+  Client.findOne({"matters._id": id}, function(err, client) {
+    // console.log(client.matters)
+    let mattersArr = client.matters;
+    mattersArr.forEach(matter => {
+      console.log(matter._id);
+      console.log(id);
+
+
+      if(matter._id == id) {
+        res.render('matters/show', { title: 'Details', matter, user: req.user});
+        
+      } else return;
+    })
+  })
+};
 
 // function edit(req, res) {
 //   Client.findById(req.params.id).exec((err, client) => {

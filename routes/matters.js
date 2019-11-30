@@ -7,10 +7,10 @@ const mattersCtrl = require('../controllers/matters');
 // router.get('/', mattersCtrl.isLoggedIn, mattersCtrl.index);
 router.post('/:id/matters', mattersCtrl.isLoggedIn, mattersCtrl.create);
 router.get('/:id/matters/new', mattersCtrl.isLoggedIn, mattersCtrl.new);
-// router.get('/:id', clientsCtrl.isLoggedIn, clientsCtrl.show);
-// router.get('/:id/edit', clientsCtrl.isLoggedIn, clientsCtrl.edit);
-// router.put('/:id', clientsCtrl.isLoggedIn, clientsCtrl.update);
-// router.delete('/:id', clientsCtrl.isLoggedIn, clientsCtrl.delete);
+router.get('/matters/:id', mattersCtrl.isLoggedIn, mattersCtrl.show);
+// router.get('/:id/edit', mattersCtrl.isLoggedIn, mattersCtrl.edit);
+// router.put('/:id', mattersCtrl.isLoggedIn, mattersCtrl.update);
+// router.delete('/:id', mattersCtrl.isLoggedIn, mattersCtrl.delete);
 
 
 module.exports = router;

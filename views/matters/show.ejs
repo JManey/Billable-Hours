@@ -10,13 +10,16 @@
   <ul class="list-group list-group-flush">
     <li class="form-control">Date Created: <%=matter.dateInit %></li>
     <li class="form-control">Case Number:    <%=matter.caseNo %></li>
-    <li class="form-control">Date Closed:  <%=matter.dateClosed %></li>
+    <li class="form-control">Date Closed: 
+      <%if(matter.dateClosed !== null){ %>
+        <%=matter.dateClosed %></li>
+      <% } %>
     <li class="form-control">Details:  <%=matter.details %></li>
   </ul>
   <div class="card-body">
-    <a href="/clients/<%= client._id %>/matter" class="btn btn-info">Edit Matter</a>
+    <a href="/clients/matters/<%= matter._id %>" class="btn btn-info">Edit Matter</a>
 
-    <form action="/clients/<%= client._id %>?_method=DELETE" method="POST" class=""><button class ="btn btn-danger" type="submit">Remove Client</button>
+    
   </div>
 </div>
       
