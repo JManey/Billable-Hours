@@ -10,7 +10,7 @@ router.get('/new', usersCtrl.isLoggedIn, usersCtrl.isAdmin, usersCtrl.new);
 router.get('/:id', usersCtrl.isLoggedIn, usersCtrl.isAdmin, usersCtrl.show);
 router.get('/:id/edit', usersCtrl.isLoggedIn, usersCtrl.isAdmin, usersCtrl.edit);
 router.put('/:id', usersCtrl.isLoggedIn, usersCtrl.isAdmin, usersCtrl.update);
-// router.put('/:id', usersCtrl.delete);
+router.delete('/:id', usersCtrl.delete);
 
 
 module.exports = router;

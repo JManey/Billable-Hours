@@ -10,7 +10,7 @@ module.exports = {
   isAdmin,
   edit,
   update,
-//   delete: deleteUser
+  delete: deleteUser
 }
 
 function index(req, res) {
@@ -56,12 +56,14 @@ function show(req, res) {
     res.render('users/show', { title: 'Details', user});
   })
 };
+
 function edit(req, res) {
   User.findById(req.params.id).exec((err, user) => {
         console.log(user)
     res.render('users/edit', { title: 'Details', user});
   })
 };
+
 function update(req, res) {
   User.findByIdAndUpdate(
     req.params.id,
@@ -70,10 +72,15 @@ function update(req, res) {
     .then(function(err, user) {
     res.redirect('/users')
   })
+};
+
+function deleteUser(req, res) {
+  User.findByIdAndDelete(
+    req.params.id)
+    .then(function(err, user) {
+    res.redirect('/users')
+  })
 }
-
-
-
 
 function isLoggedIn(req, res, next){
   if (req.isAuthenticated()) return next()
@@ -87,7 +94,6 @@ function isAdmin(req, res, next) {
   if(req.isAuthenticated()) {
     User.findOne({googleId: req.user.googleId}, function(err, user) {
       if(user.isAdmin) return next();
-      
         console.log('You are not authorized to view this data.')
       res.redirect('/')
     })
