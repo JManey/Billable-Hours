@@ -1,0 +1,31 @@
+<%- include('../partials/header') %>
+
+
+<h1>Enter New Client</h1>
+<p>Welcome to Billable Hours</p>
+
+<form action="/clients" method="POST">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="name" class="form-control" name="name" placeholder="First Last">
+    </div>
+    <div class="form-group">
+      <label for="name">Phone Number</label>
+      <input type="phone" class="form-control" name="phone" placeholder="(512) 123-6789">
+    </div>
+    <div class="form-group">
+      <label for="name">Address</label>
+      <input type="name" class="form-control" name="address" placeholder="123 Easy St. Austin, TX 78748">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Email address</label>
+      <input type="email" class="form-control" name="email" placeholder="name@example.com">
+    </div>
+      <input type="submit"
+       class="btn btn-primary">
+    
+    
+  </form>
+
+
+<%- include('../partials/footer') %>
