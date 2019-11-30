@@ -1,0 +1,19 @@
+<%- include('../partials/header') %>
+
+
+<h1>Users</h1>
+<p>Welcome to Billable Hours</p>
+
+<% users.forEach(function(user) { %>
+  <tr>
+    <td><%= user.name %></td>
+    <td><%= user.payRate %></td>
+    <td><%= user.isAdmin %></td>
+  </tr>
+  <br>
+  <% }); %>
+</tbody>
+</table>
+
+
+<%- include('../partials/footer') %>

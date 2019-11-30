@@ -8,8 +8,8 @@
   </head>
   <body>
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="#">Navbar</a>
+      <nav class="navbar navbar-expand navbar-light bg-light">
+          
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -28,7 +28,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="/users">Users</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="/users/new">Add User</a>
                 </div>
@@ -43,9 +43,9 @@
             </form>
           </div>
           <% if (user) { %>
-            <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
+            <a href="/logout" class="btn btn-danger" width="35"> Logout </a>
           <% } else { %>
-            <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
+            <a href="/auth/google" class="btn btn-danger" width="35">Login with Google</a>
           <% } %>
             
 

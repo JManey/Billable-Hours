@@ -9,6 +9,10 @@ const userSchema = new mongoose.Schema({
   googleId: String,
   title: String,
   payRate: Number,
+  isAdmin: {
+    type: Boolean,
+    default: false
+  }
 }, {
   timestamps: true
 })
