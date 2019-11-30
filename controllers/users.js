@@ -5,7 +5,7 @@ module.exports = {
   index,
   new: newUser,
   create,
-//   show,
+  show,
 //   edit,
 //   update,
 //   delete: deleteUser
@@ -47,3 +47,9 @@ function create(req, res) {
     res.redirect('/users');
   })
 }
+
+function show(req, res) {
+  User.findById(req.params.id).exec( user => {
+    res.render('users/show', { title: 'Details', user});
+  })
+};

@@ -13,11 +13,12 @@ passport.use(new GoogleStrategy({
       if (err) return cb(err);
       if (user) { //user already exists
         return cb(null, user);
-      } else { // new user logged in save their data
+      } else { // new user logged in save their data        
         let newUser = new User({
           name: profile.displayName,
           email: profile.emails[0].value,
-          googleId: profile.id
+          googleId: profile.id,
+          avatar: profile.photos[0].value,
         });
         newUser.save(function(err) {
           if (err) return cb(err);
