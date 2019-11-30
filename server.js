@@ -42,7 +42,6 @@ app.use(methodOverride('_method'))
 
    //  routes   //
 app.use('/', indexRouter);
-// app.use('/', authRouter);
 app.use('/users', usersRouter);
 app.use('/clients', clientsRouter);
 

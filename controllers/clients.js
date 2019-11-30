@@ -49,16 +49,16 @@ function create(req, res) {
 }
 
 function show(req, res) {
-  User.findById(req.params.id).exec((err, client) => {
+  Client.findById(req.params.id).exec((err, client) => {
     // console.log(client)
-    res.render('clients/show', { title: 'Details', client});
+    res.render('clients/show', { title: 'Details', client, user: req.user});
   })
 };
 
 function edit(req, res) {
-  User.findById(req.params.id).exec((err, client) => {
+  Client.findById(req.params.id).exec((err, client) => {
         console.log(client)
-    res.render('clients/edit', { title: 'Details', client});
+    res.render('clients/edit', { title: 'Details', client, user: req.user});
   })
 };
 
