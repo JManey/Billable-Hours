@@ -11,6 +11,7 @@ function index(req, res, next) {
     title: 'Dashboard',
     user: req.user,
     name: req.query.name,
+    req,
    });
 }
 

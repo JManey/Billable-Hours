@@ -1,0 +1,21 @@
+<%- include('../partials/header') %>
+
+
+<h1 class="text-center">Users</h1>
+<p class="text-center">Welcome to Billable Hours</p>
+
+<div class="row">
+<% users.forEach(function(user) { %>
+    <div class="card" style="width: 18rem;">
+      <img src="<%=  user.avatar %>" class="card-img-top" alt="user image">
+      <div class="card-body">
+        <h5 class="card-title"> <%= user.name %> </h5>
+      </div>
+      <a href="users/<%= user._id %>" class="btn btn-success">View</a>
+    </div>
+    <% }); %>
+  </div>
+
+
+
+<%- include('../partials/footer') %>
