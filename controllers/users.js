@@ -6,8 +6,10 @@ module.exports = {
   new: newUser,
   create,
   show,
-//   edit,
-//   update,
+  isLoggedIn,
+  isAdmin,
+  edit,
+  update,
 //   delete: deleteUser
 }
 
@@ -49,7 +51,45 @@ function create(req, res) {
 }
 
 function show(req, res) {
-  User.findById(req.params.id).exec( user => {
+  User.findById(req.params.id).exec((err, user) => {
+    // console.log(user)
     res.render('users/show', { title: 'Details', user});
   })
 };
+function edit(req, res) {
+  User.findById(req.params.id).exec((err, user) => {
+        console.log(user)
+    res.render('users/edit', { title: 'Details', user});
+  })
+};
+function update(req, res) {
+  User.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    {new: true})
+    .then(function(err, user) {
+    res.redirect('/users')
+  })
+}
+
+
+
+
+function isLoggedIn(req, res, next){
+  if (req.isAuthenticated()) return next()
+  console.log('user logged in')
+  //if not logged in redirect to login
+  res.redirect('/auth/google')
+}
+
+function isAdmin(req, res, next) {
+  console.log('check if admin')
+  if(req.isAuthenticated()) {
+    User.findOne({googleId: req.user.googleId}, function(err, user) {
+      if(user.isAdmin) return next();
+      
+        console.log('You are not authorized to view this data.')
+      res.redirect('/')
+    })
+  }
+}

@@ -6,6 +6,7 @@
 
 <% users.forEach(function(user) { %>
   <tr>
+    <td><a href="users/<%= user._id %>">View</a></td>
     <td><%= user.name %></td>
     <td><%= user.payRate %></td>
     <td><%= user.isAdmin %></td>
