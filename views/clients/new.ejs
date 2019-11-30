@@ -1,10 +1,9 @@
 <% include ../partials/header.ejs %>
 
-
-<h1>Enter New User</h1>
+<h1>Enter New Client</h1>
 <p>Welcome to Billable Hours</p>
 
-<form action="/users" method="POST">
+<form action="/clients" method="POST">
     <div class="form-group">
       <label for="name">Name</label>
       <input type="name" class="form-control" name="name" placeholder="First Last">
@@ -21,26 +20,6 @@
       <label for="exampleFormControlInput1">Email address</label>
       <input type="email" class="form-control" name="email" placeholder="name@example.com">
     </div>
-    <div class="form-group">
-      <label for="exampleFormControlInput1">Pay Rate</label>
-      <input type="number" class="form-control" name="payRate" placeholder="$00.00">
-    </div>
-    <div class="form-group">
-      <label for="exampleFormControlSelect1">Job Title</label>
-      <select class="form-control" name="title">
-        <option>Receptionist</option>
-        <option>Paralegal</option>
-        <option>Attorney</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="exampleFormControlSelect1">Administrator</label>
-      <select class="form-control" name="isAdmin">
-        <option value="0">False</option>
-        <option value="1">True</option>
-      </select>
-    </div>
-    
       <input type="submit"
        class="btn btn-primary">
     

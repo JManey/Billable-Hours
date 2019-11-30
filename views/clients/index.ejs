@@ -1,0 +1,19 @@
+<% include ../partials/header.ejs %>
+
+<h1 class="text-center">Clients</h1>
+<p class="text-center">Welcome to Billable Hours</p>
+
+<div class="row">
+<% clients.forEach(function(client) { %>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"> <%= client.name %> </h5>
+      </div>
+      <a href="clients/<%= client._id %>" class="btn btn-success">View</a>
+    </div>
+    <% }); %>
+  </div>
+
+
+
+  <% include ../partials/footer.ejs %>

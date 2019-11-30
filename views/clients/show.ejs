@@ -1,0 +1,31 @@
+<% include ../partials/header.ejs %>
+
+
+<h1 class="text-center">Client Details</h1>
+<p class="text-center">Welcome to Billable Hours</p>
+
+<div class="card" style="width: 18rem;">
+    <h5 class="card-title form-control text-center"><%= client.name %></h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="form-control">Address: <%=client.address %></li>
+    <li class="form-control">Phone:    <%=client.phone %></li>
+    <li class="form-control">Email:  <%=client.email %></li>
+  </ul>
+  <div class="card-body">
+    <a href="/clients/<%= client._id %>/edit" class="btn btn-info">Edit Client</a>
+
+    <form action="/clients/<%= client._id %>?_method=DELETE" method="POST" class=""><button class ="btn btn-danger" type="submit">Remove Client</button>
+    
+      
+    
+  </div>
+</div>
+      
+    </tbody>
+  </table>
+
+</div>
+</div>
+
+<% include ../partials/footer.ejs %>
