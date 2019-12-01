@@ -1,0 +1,32 @@
+<% include ../partials/header.ejs %>
+
+
+<h1 class="text-center">Matter Details</h1>
+<p class="text-center">Welcome to Billable Hours</p>
+
+<div class="card" style="width: 18rem;">
+    <h5 class="card-title form-control text-center"><%= matter.title %></h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="form-control">Date Created: <%=matter.dateInit %></li>
+    <li class="form-control">Case Number:    <%=matter.caseNo %></li>
+    <li class="form-control">Date Closed: 
+      <%if(matter.dateClosed !== null){ %>
+        <%=matter.dateClosed %></li>
+      <% } %>
+    <li class="form-control">Details:  <%=matter.details %></li>
+  </ul>
+  <div class="card-body">
+    <a href="/clients/matters/<%= matter._id %>/edit" class="btn btn-info">Edit Matter</a>
+
+    
+  </div>
+</div>
+      
+    </tbody>
+  </table>
+
+</div>
+</div>
+
+<% include ../partials/footer.ejs %>

@@ -42,7 +42,7 @@ function create(req, res) {
     payRate: req.body.payRate,
     title: req.body.title
   });
-  console.log(user)
+  // console.log(user)
   user.save(
     err => {
     if(err) return res.redirect('users/new')
@@ -59,7 +59,7 @@ function show(req, res) {
 
 function edit(req, res) {
   User.findById(req.params.id).exec((err, user) => {
-        console.log(user)
+        // console.log(user)
     res.render('users/edit', { title: 'Details', user});
   })
 };
@@ -84,13 +84,13 @@ function deleteUser(req, res) {
 
 function isLoggedIn(req, res, next){
   if (req.isAuthenticated()) return next()
-  console.log('user logged in')
+  // console.log('user logged in')
   //if not logged in redirect to login
   res.redirect('/auth/google')
 }
 
 function isAdmin(req, res, next) {
-  console.log('check if admin')
+  // console.log('check if admin')
   if(req.isAuthenticated()) {
     User.findOne({googleId: req.user.googleId}, function(err, user) {
       if(user.isAdmin) return next();

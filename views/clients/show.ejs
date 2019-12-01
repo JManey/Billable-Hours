@@ -8,12 +8,22 @@
     <h5 class="card-title form-control text-center"><%= client.name %></h5>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="form-control">Address: <%=client.address %></li>
-    <li class="form-control">Phone:    <%=client.phone %></li>
-    <li class="form-control">Email:  <%=client.email %></li>
+    <li class="form-control">Address: <%= client.address %></li>
+    <li class="form-control">Phone:    <%= client.phone %></li>
+    <li class="form-control">Email:  <%= client.email %></li>
+    <% client.matters.forEach(function(matter) { %>
+      <a href="/clients/matters/<%= matter._id %>" class="btn btn-info">View Matter</a> 
+      <li class="form-control">Matter:  <%= matter.title %></li>
+    <% }); %>
   </ul>
   <div class="card-body">
     <a href="/clients/<%= client._id %>/edit" class="btn btn-info">Edit Client</a>
+
+  <div class="card-body">
+    <a href="/clients/<%= client._id %>/matters/new" class="btn btn-info">New Matter</a>
+
+  <div class="card-body">
+    <a href="/clients/<%= client._id %>/matters" class="btn btn-info">View Matters</a>
 
     <form action="/clients/<%= client._id %>?_method=DELETE" method="POST" class=""><button class ="btn btn-danger" type="submit">Remove Client</button>
     

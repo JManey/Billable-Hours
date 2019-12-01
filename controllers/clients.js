@@ -11,6 +11,7 @@ module.exports = {
   delete: deleteClient,
   isAdmin,
   isLoggedIn,
+  // viewMatters,
 }
 
 function index(req, res) {
@@ -82,13 +83,13 @@ function deleteClient(req, res) {
 
 function isLoggedIn(req, res, next){
   if (req.isAuthenticated()) return next()
-  console.log('user logged in')
+  // console.log('user logged in')
   //if not logged in redirect to login
   res.redirect('/auth/google')
 }
 
 function isAdmin(req, res, next) {
-  console.log('check if admin')
+  // console.log('check if admin')
   if(req.isAuthenticated()) {
     User.findOne({googleId: req.user.googleId}, function(err, user) {
       if(user.isAdmin) return next();
@@ -97,3 +98,7 @@ function isAdmin(req, res, next) {
     })
   }
 }
+
+// function viewMatters(req, res) {
+//   User.findOne({googleId: req.user.googleId}, function(err, user)
+// }
