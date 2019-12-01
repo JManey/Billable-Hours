@@ -2,12 +2,13 @@ const Client = require('../models/client');
 
 
 module.exports = {
-  
+  update,
   new: newMatter,
   create,
   show,
   isLoggedIn,
   isAdmin,
+  edit,
   
 }
 
@@ -35,13 +36,8 @@ function newMatter(req, res) {
 function show(req, res) {
   let id = req.params.id;
   Client.findOne({"matters._id": id}, function(err, client) {
-    // console.log(client.matters)
     let mattersArr = client.matters;
     mattersArr.forEach(matter => {
-      console.log(matter._id);
-      console.log(id);
-
-
       if(matter._id == id) {
         res.render('matters/show', { title: 'Details', matter, user: req.user});
         
@@ -50,22 +46,47 @@ function show(req, res) {
   })
 };
 
-// function edit(req, res) {
-//   Client.findById(req.params.id).exec((err, client) => {
-//         console.log(client)
-//     res.render('clients/edit', { title: 'Details', client, user: req.user});
-//   })
-// };
+function edit(req, res) {
+  let id = req.params.id;
+  console.log(req.params.id)
+  Client.findOne({"matters._id": id}, function(err, client) {
+    let mattersArr = client.matters;
+    mattersArr.forEach(matter => {
+      if(matter._id == id) {
+        console.log(matter)
+        res.render('matters/edit', { title: 'Edit', matter, user: req.user});
+        
+      } else return;
+    })
+  })
+};
 
-// function update(req, res) {
-//   Client.findByIdAndUpdate(
-//     req.params.id,
-//     req.body,
-//     {new: true})
-//     .then(function(err, client) {
-//     res.redirect('/clients')
-//   })
-// };
+function update(req, res) {
+  let id = req.params.id;
+  Client.findOne({"matters._id": id}, function(err, client) {
+    let mattersArr = client.matters;
+    mattersArr.forEach((matter, idx) => {
+      if(matter._id == id) {
+        req.body._id = id;
+      
+        client.matters[idx]._id = id,
+        client.matters[idx].title = req.body.title,
+        client.matters[idx].dateInit = req.body.dateInit,
+        client.matters[idx].caseNo = req.body.caseNo,
+        client.matters[idx].details = req.body.details,
+        client.matters[idx].dateClosed = req.body.dateClosed,
+        
+        console.log(client);
+         client.save(err => {
+          if(err) {console.log(err);}
+          else res.redirect('/clients')
+        })
+      } else res.send("error");
+    })
+  })
+}
+
+
 
 // function deleteClient(req, res) {
 //   Client.findByIdAndDelete(
