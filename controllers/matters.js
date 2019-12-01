@@ -75,13 +75,10 @@ function update(req, res) {
         client.matters[idx].caseNo = req.body.caseNo,
         client.matters[idx].details = req.body.details,
         client.matters[idx].dateClosed = req.body.dateClosed,
-        
-        console.log(client);
-         client.save(err => {
-          if(err) {console.log(err);}
-          else res.redirect('/clients')
-        })
-      } else res.send("error");
+         client.save().then(
+          res.redirect('/clients')
+        )
+      }
     })
   })
 }
