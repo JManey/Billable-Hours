@@ -1,5 +1,5 @@
 const User = require('../models/user');
-
+const title = 'Welcome to '
 
 module.exports = {
   index,

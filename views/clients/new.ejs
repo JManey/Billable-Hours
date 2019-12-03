@@ -3,6 +3,7 @@
 <h1>Enter New Client</h1>
 <p>Welcome to Billable Hours</p>
 
+<div class="card text-center bg-secondary p-2" style="width: 18rem;">
 <form action="/clients" method="POST">
     <div class="form-group">
       <label for="name">Name</label>
@@ -21,10 +22,10 @@
       <input type="email" class="form-control" name="email" placeholder="name@example.com">
     </div>
       <input type="submit"
-       class="btn btn-primary">
+       class="btn btn-outline-light">
     
     
   </form>
-
+</div>
 
   <% include ../partials/footer.ejs %>

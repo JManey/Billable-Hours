@@ -19,6 +19,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const clientsRouter = require('./routes/clients');
 const mattersRouter = require('./routes/matters');
+const tasksRouter = require('./routes/tasks');
 
     // view engine setup //
 app.set('views', path.join(__dirname, 'views'));
@@ -43,6 +44,7 @@ app.use(methodOverride('_method'))
 
    //  routes   //
 app.use('/', indexRouter);
+app.use('/tasks', tasksRouter);
 app.use('/users', usersRouter);
 app.use('/clients', clientsRouter);
 app.use('/clients', mattersRouter);
