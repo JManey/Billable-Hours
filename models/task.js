@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const taskSchema = new mongoose.Schema({
   title: String,
   details: String,
-  dateDue: String,
+  dateDue: Date,
   assignedTo: [{
     type: Schema.Types.ObjectId,
     ref: 'User'  

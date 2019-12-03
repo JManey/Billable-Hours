@@ -32,12 +32,14 @@ function create(req, res) {
     matterRef: req.body.matterRef,
     
   });
-  // console.log(user)
+  console.log(task)
   task.save().then(
     err => {
-    if(err) return res.redirect('tasks/new')
-    res.redirect('/tasks');
+    if(err) {
+      return res.redirect('tasks/new')
+    } else process.exit()
   })
+  res.redirect('/');
 }
 
 // function newTask(req, res) {}
