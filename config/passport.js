@@ -21,6 +21,7 @@ passport.use(new GoogleStrategy({
           avatar: profile.photos[0].value,
         });
         newUser.save(function(err) {
+          //maybe add .then after .save
           if (err) return cb(err);
           return cb(null, newUser);
         })
