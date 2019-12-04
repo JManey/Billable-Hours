@@ -31,17 +31,12 @@ function newClient(req, res) {
 }
 
 function create(req, res) {
-  // for (let key in req.body) {
-  //   if (req.body[key] === '') delete req.body[key];
-  // }
-  // console.log(req.body)
   let client = new Client({
     name: req.body.name,
     email: req.body.email,
     phone: req.body.phone,
     address: req.body.address,
   });
-  console.log(client)
   client.save(
     err => {
     if(err) return res.redirect('clients/new')
@@ -51,14 +46,12 @@ function create(req, res) {
 
 function show(req, res) {
   Client.findById(req.params.id).exec((err, client) => {
-    // console.log(client)
     res.render('clients/show', { title: 'Details', client, user: req.user});
   })
 };
 
 function edit(req, res) {
   Client.findById(req.params.id).exec((err, client) => {
-        console.log(client)
     res.render('clients/edit', { title: 'Details', client, user: req.user});
   })
 };
@@ -83,13 +76,11 @@ function deleteClient(req, res) {
 
 function isLoggedIn(req, res, next){
   if (req.isAuthenticated()) return next()
-  // console.log('user logged in')
   //if not logged in redirect to login
   res.redirect('/auth/google')
 }
 
 function isAdmin(req, res, next) {
-  // console.log('check if admin')
   if(req.isAuthenticated()) {
     User.findOne({googleId: req.user.googleId}, function(err, user) {
       if(user.isAdmin) return next();
@@ -99,6 +90,3 @@ function isAdmin(req, res, next) {
   }
 }
 
-// function viewMatters(req, res) {
-//   User.findOne({googleId: req.user.googleId}, function(err, user)
-// }

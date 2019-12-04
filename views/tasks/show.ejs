@@ -3,6 +3,7 @@
 
 <h1 class="text-center">Task Details</h1>
 
+<div class="row justify-content-center">
 <div class="card" style="width: 28rem;">
   <img src="<%=  user.avatar %>" class="card-img-top" alt="user image">
   <div class="card-body">
@@ -14,18 +15,13 @@
     <li class="form-control">Due By:  <%=task.dateDue %></li>
     <li class="form-control">Matter:  <a href="/clients/matters/<%=  matter._id %>"><%=matter.title %></li></a>
   </ul>
-  <div class="card-body">
     <a href="/tasks/<%= task._id %>/edit" class="btn btn-info">Edit task</a>
 
-    <form action="/tasks/<%= task._id %>?_method=DELETE" method="POST" class=""><button class ="btn btn-danger" type="submit">Remove task</button>
-    
+    <form action="/tasks/<%= task._id %>?_method=DELETE" method="POST" class="btn btn-danger">
       
-    
-  </div>
-</div>
       
-    </tbody>
-  </table>
+      <button class ="btn btn-danger" type="submit">Remove task</button>
+    
 
 </div>
 </div>

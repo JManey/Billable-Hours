@@ -16,8 +16,7 @@ module.exports = {
 }
 
 function index(req, res) {
-  Task.find({}, function(err, tasks) {
-    // res.send(tasks)
+  Task.find({}).populate('assignedTo').exec((err, tasks) => {
     if(err) res.send()
     res.render('tasks/index', {title: 'Billable Hours', req, tasks, task: req.task, user: req.user})
   })
@@ -30,9 +29,7 @@ function create(req, res) {
     dateDue: req.body.dateDue,
     assignedTo: req.body.assignedTo,
     matterRef: req.body.matterRef,
-    
   });
-  console.log(task)
   task.save().then(
     err => {
     if(err) {
@@ -41,7 +38,6 @@ function create(req, res) {
   })
   res.redirect('/tasks');
 }
-
 
 function newTask (req, res) {
   let matters = [];
@@ -72,17 +68,12 @@ function show(req, res) {
     let matterID =task.matterRef[0];
     Client.findOne({"matters._id": matterID}, function(err, client) {
       let matter = client.matters.id(matterID);
-console.log(matter.title);
-        // return matter;
         res.render('tasks/show', {matter, task,user: req.user, title: "View Task"})
       })
     })
   }
 
 function edit(req, res) {
-  console.log('hello', req.params.id)
-  console.log(`**************************************
-  **************************`)
   Task.findById(req.params.id).populate('assignedTo').exec((err, task) => {
     let matterID =task.matterRef[0];
     Client.findOne({"matters._id": matterID}, function(err, client) {
@@ -95,10 +86,8 @@ function edit(req, res) {
           cM.forEach(matter => {
             matters.push(matter)
           })
-          console.log(users)
           res.render('tasks/edit', {matter, matters, users, task, user: req.user, title: "Edit Task"})        
         })
-
       })
       } 
     )
@@ -114,25 +103,12 @@ function update(req, res) {
   })
 }
 
-
-
-// function deleteClient(req, res) {
-//   Client.findByIdAndDelete(
-//     req.params.id)
-//     .then(function(err, client) {
-//     res.redirect('/clients')
-//   })
-// }
-
 function isLoggedIn(req, res, next){
   if (req.isAuthenticated()) return next()
-  // console.log('user logged in')
-  //if not logged in redirect to login
   res.redirect('/auth/google')
 }
 
 function isAdmin(req, res, next) {
-  console.log('check if admin')
   if(req.isAuthenticated()) {
     User.findOne({googleId: req.user.googleId}, function(err, user) {
       if(user.isAdmin) return next();

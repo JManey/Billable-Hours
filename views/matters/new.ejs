@@ -1,8 +1,8 @@
 <% include ../partials/header.ejs %>
 
-<h1>Enter New Matter</h1>
-<p>Welcome to Billable Hours</p>
+<h1 class="text-center">Enter New Matter</h1>
 
+<div class="row justify-content-center">
 <div class="card text-center bg-secondary p-2" style="width: 28rem;">
 <form action="/clients/<%= client._id %>/matters" method="POST">
     <div class="form-group">
@@ -26,6 +26,7 @@
     
     
   </form>
+</div>
 </div>
 
   <% include ../partials/footer.ejs %>

@@ -40,7 +40,6 @@ function show(req, res) {
     mattersArr.forEach(matter => {
       if(matter._id == id) {
         res.render('matters/show', { title: 'Details', matter, user: req.user});
-        
       } else return;
     })
   })
@@ -48,14 +47,11 @@ function show(req, res) {
 
 function edit(req, res) {
   let id = req.params.id;
-  console.log(req.params.id)
   Client.findOne({"matters._id": id}, function(err, client) {
     let mattersArr = client.matters;
     mattersArr.forEach(matter => {
       if(matter._id == id) {
-        console.log(matter)
         res.render('matters/edit', { title: 'Edit', matter, user: req.user});
-        
       } else return;
     })
   })
@@ -83,19 +79,8 @@ function update(req, res) {
   })
 }
 
-
-
-// function deleteClient(req, res) {
-//   Client.findByIdAndDelete(
-//     req.params.id)
-//     .then(function(err, client) {
-//     res.redirect('/clients')
-//   })
-// }
-
 function isLoggedIn(req, res, next){
   if (req.isAuthenticated()) return next()
-  // console.log('user logged in')
   //if not logged in redirect to login
   res.redirect('/auth/google')
 }

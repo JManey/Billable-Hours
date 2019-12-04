@@ -3,8 +3,8 @@
 
 
 <h1 class="text-center">Edit User</h1>
-<p class="text-center">Welcome to Billable Hours</p>
 
+<div class="row justify-content-center">
 <div class="card text-center bg-secondary p-2" style="width: 18rem;">
   <div class="form-group">
   <form action="/users/<%= user._id %>?_method=PUT" method="POST">
@@ -48,6 +48,6 @@
   </form>
 </div>
 </div>
-
+</div>
 
 <% include ../partials/footer.ejs %>

@@ -1,17 +1,16 @@
 <% include ../partials/header.ejs %>
 
 
-<h1 class="text-center">Users</h1>
-<p class="text-center">Welcome to Billable Hours</p>
-
-<div class="row">
+<h1 class="text-center">Tasks</h1>
+<hr>
+<div class="row justify-content-center">
 <% tasks.forEach(function(task) { %>
-    <div class="card" style="width: 18rem;">
+    <div class="card m-2" style="width: 20rem;">
       <div class="card-body">
-        <h5 class="card-title"> <%= task.heading %> </h5>
+        <h5 class="card-title text-center"> <%= task.heading %> </h5>
       </div>
       <ul>
-        <li>Task Assigned to: <%=task.assignedTo %></li>
+        <li>Task Assigned to: <%=task.assignedTo[0].name %></li>
       </ul>
 
       <a href="tasks/<%= task._id %>" class="btn btn-info">View</a>

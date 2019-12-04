@@ -2,22 +2,21 @@
 
 
 <h1 class="text-center">Matter Details</h1>
-<p class="text-center">Welcome to Billable Hours</p>
 
+<div class="row justify-content-center">
 <div class="card" style="width: 28rem;">
   <div>
-    <h5 class="card-title text-center"><%= matter.title %></h5>
+    <h5 class="card-title text-center ml-4"><%= matter.title %></h5>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="card-text mt-2">Date Created: <%=matter.dateInit %></li>
-    <li class="card-text mt-2">Case Number:    <%=matter.caseNo %></li>
-    <li class="card-text mt-2">Date Closed: 
+    <li class="card-text mt-2 ml-4">Date Created: <%=matter.dateInit %></li>
+    <li class="card-text mt-2 ml-4">Case Number:    <%=matter.caseNo %></li>
+    <li class="card-text mt-2 ml-4">Date Closed: 
       <%if(matter.dateClosed !== null){ %>
         <%=matter.dateClosed %></li>
       <% } %>
-    <li class="card-text mt-2">Details:  <%=matter.details %></li>
+    <li class="card-text mt-2 ml-4">Details:  <%=matter.details %></li>
   </ul>
-  <div class="card-body">
     <a href="/clients/matters/<%= matter._id %>/edit" class="btn btn-info mt-2">Edit Matter</a>
 
     
@@ -29,5 +28,6 @@
 
 </div>
 </div>
+
 
 <% include ../partials/footer.ejs %>

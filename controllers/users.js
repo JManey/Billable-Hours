@@ -30,10 +30,6 @@ function newUser(req, res) {
 }
 
 function create(req, res) {
-  // for (let key in req.body) {
-  //   if (req.body[key] === '') delete req.body[key];
-  // }
-  // console.log(req.body)
   let user = new User({
     name: req.body.name,
     isAdmin: req.body.isAdmin,
@@ -42,7 +38,6 @@ function create(req, res) {
     payRate: req.body.payRate,
     title: req.body.title
   });
-  // console.log(user)
   user.save(
     err => {
     if(err) return res.redirect('users/new')
@@ -52,14 +47,12 @@ function create(req, res) {
 
 function show(req, res) {
   User.findById(req.params.id).exec((err, user) => {
-    // console.log(user)
     res.render('users/show', { title: 'Details', user});
   })
 };
 
 function edit(req, res) {
   User.findById(req.params.id).exec((err, user) => {
-        // console.log(user)
     res.render('users/edit', { title: 'Details', user});
   })
 };
@@ -84,13 +77,10 @@ function deleteUser(req, res) {
 
 function isLoggedIn(req, res, next){
   if (req.isAuthenticated()) return next()
-  // console.log('user logged in')
-  //if not logged in redirect to login
   res.redirect('/auth/google')
 }
 
 function isAdmin(req, res, next) {
-  // console.log('check if admin')
   if(req.isAuthenticated()) {
     User.findOne({googleId: req.user.googleId}, function(err, user) {
       if(user.isAdmin) return next();

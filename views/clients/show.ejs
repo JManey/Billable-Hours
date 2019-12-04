@@ -2,16 +2,16 @@
 
 
 <h1 class="text-center">Client Details</h1>
-<p class="text-center">Welcome to Billable Hours</p>
 
-<div class="card" style="width: 28rem;">
+<div class="row justify-content-center">
+<div class="card " style="width: 28rem;">
   <div>
     <h5 class="card-title text-center mt-2"><%= client.name %></h5>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="card-text mt-2">Address: <%= client.address %></li>
-    <li class="card-text mt-2">Phone:    <%= client.phone %></li>
-    <li class="card-text mt-2">Email:  <%= client.email %></li>
+    <li class="card-text mt-2 ml-4">Address: <%= client.address %></li>
+    <li class="card-text mt-2 ml-4">Phone:    <%= client.phone %></li>
+    <li class="card-text mt-2 ml-4">Email:  <%= client.email %></li>
     <% client.matters.forEach(function(matter) { %>
       <a href="/clients/matters/<%= matter._id %>" class="btn btn-info mt-2 p-3"><li class="form-control">Matter:  <%= matter.title %></li></a>
     <% }); %>
@@ -30,6 +30,7 @@
     </tbody>
   </table>
 
+</div>
 </div>
 </div>
 

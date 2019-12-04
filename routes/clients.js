@@ -10,7 +10,7 @@ router.get('/new', clientsCtrl.isLoggedIn, clientsCtrl.new);
 router.get('/:id', clientsCtrl.isLoggedIn, clientsCtrl.show);
 router.get('/:id/edit', clientsCtrl.isLoggedIn, clientsCtrl.edit);
 router.put('/:id', clientsCtrl.isLoggedIn, clientsCtrl.update);
-router.delete('/:id', clientsCtrl.isLoggedIn, clientsCtrl.delete);
+router.delete('/:id', clientsCtrl.isLoggedIn, clientsCtrl.isAdmin, clientsCtrl.delete);
 
 
 module.exports = router;
