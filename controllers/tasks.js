@@ -88,34 +88,29 @@ function edit(req, res) {
     Client.findOne({"matters._id": matterID}, function(err, client) {
       let matter = client.matters.id(matterID);
       User.find({}).then(users => {
-        console.log(users)
-        res.render('tasks/edit', {matter, users, task, user: req.user, title: "Edit Task"})        
+        let matters = [];
+      return Client.find({}).then(clients => {
+        clients.forEach(client => {
+          let cM = client.matters;
+          cM.forEach(matter => {
+            matters.push(matter)
+          })
+          console.log(users)
+          res.render('tasks/edit', {matter, matters, users, task, user: req.user, title: "Edit Task"})        
+        })
 
       })
       } 
     )
   })
+})
 };
 
 function update(req, res) {
   let id = req.params.id;
-  Client.findOne({"matters._id": id}, function(err, client) {
-    let mattersArr = client.matters;
-    mattersArr.forEach((matter, idx) => {
-      if(matter._id == id) {
-        req.body._id = id;
-      
-        client.matters[idx]._id = id,
-        client.matters[idx].title = req.body.title,
-        client.matters[idx].dateInit = req.body.dateInit,
-        client.matters[idx].caseNo = req.body.caseNo,
-        client.matters[idx].details = req.body.details,
-        client.matters[idx].dateClosed = req.body.dateClosed,
-         client.save().then(
-          res.redirect('/clients')
-        )
-      }
-    })
+  Task.findByIdAndUpdate(id, req.body)
+  .then(function(err, task){
+    res.redirect('/tasks')
   })
 }
 
