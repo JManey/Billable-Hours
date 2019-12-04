@@ -4,30 +4,25 @@
 <h1 class="text-center">Client Details</h1>
 <p class="text-center">Welcome to Billable Hours</p>
 
-<div class="card" style="width: 18rem;">
-    <h5 class="card-title form-control text-center"><%= client.name %></h5>
+<div class="card" style="width: 28rem;">
+  <div>
+    <h5 class="card-title text-center mt-2"><%= client.name %></h5>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="form-control">Address: <%= client.address %></li>
-    <li class="form-control">Phone:    <%= client.phone %></li>
-    <li class="form-control">Email:  <%= client.email %></li>
+    <li class="card-text mt-2">Address: <%= client.address %></li>
+    <li class="card-text mt-2">Phone:    <%= client.phone %></li>
+    <li class="card-text mt-2">Email:  <%= client.email %></li>
     <% client.matters.forEach(function(matter) { %>
-      <a href="/clients/matters/<%= matter._id %>" class="btn btn-info">View Matter</a> 
-      <li class="form-control">Matter:  <%= matter.title %></li>
+      <a href="/clients/matters/<%= matter._id %>" class="btn btn-info mt-2 p-3"><li class="form-control">Matter:  <%= matter.title %></li></a>
     <% }); %>
   </ul>
-  <div class="card-body">
-    <a href="/clients/<%= client._id %>/edit" class="btn btn-info">Edit Client</a>
 
-  <div class="card-body">
-    <a href="/clients/<%= client._id %>/matters/new" class="btn btn-info">New Matter</a>
 
-  <div class="card-body">
-    <a href="/clients/<%= client._id %>/matters" class="btn btn-info">View Matters</a>
+    <a href="/clients/<%= client._id %>/edit" class="btn btn-info mt-2">Edit Client</a>
 
-    <form action="/clients/<%= client._id %>?_method=DELETE" method="POST" class=""><button class ="btn btn-danger" type="submit">Remove Client</button>
-    
-      
+    <a href="/clients/<%= client._id %>/matters/new" class="btn btn-info mt-2">New Matter</a>
+
+    <button class ="btn btn-danger mt-2" type="submit"><form action="/clients/<%= client._id %>?_method=DELETE" method="POST" class="">Remove Client</button>
     
   </div>
 </div>

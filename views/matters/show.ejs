@@ -6,19 +6,19 @@
 
 <div class="card" style="width: 28rem;">
   <div>
-    <h5 class="card-title form-control text-center"><%= matter.title %></h5>
+    <h5 class="card-title text-center"><%= matter.title %></h5>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="form-control">Date Created: <%=matter.dateInit %></li>
-    <li class="form-control">Case Number:    <%=matter.caseNo %></li>
-    <li class="form-control">Date Closed: 
+    <li class="card-text mt-2">Date Created: <%=matter.dateInit %></li>
+    <li class="card-text mt-2">Case Number:    <%=matter.caseNo %></li>
+    <li class="card-text mt-2">Date Closed: 
       <%if(matter.dateClosed !== null){ %>
         <%=matter.dateClosed %></li>
       <% } %>
-    <li class="form-control">Details:  <%=matter.details %></li>
+    <li class="card-text mt-2">Details:  <%=matter.details %></li>
   </ul>
   <div class="card-body">
-    <a href="/clients/matters/<%= matter._id %>/edit" class="btn btn-info">Edit Matter</a>
+    <a href="/clients/matters/<%= matter._id %>/edit" class="btn btn-info mt-2">Edit Matter</a>
 
     
   </div>
