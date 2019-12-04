@@ -1,26 +1,26 @@
 <% include ../partials/header.ejs %>
 
 
-<h1>Enter New Task</h1>
+<h1>Edit Task</h1>
 <p>Welcome to Billable Hours</p>
 
 <div class="card text-center bg-secondary p-2" style="width: 18rem;">
-<form action="/tasks" method="POST">
+<form action="/tasks/<%= task._id %>?_method=PUT" method="POST">
     <div class="form-group">
       <label for="heading">Title</label>
-      <input type="text" class="form-control" name="heading" placeholder="New Task">
+      <input type="text" class="form-control" name="heading" placeholder="<%= task.heading %>">
     </div>
     <div class="form-group">
       <label for="details">Details</label>
-      <input type="text" class="form-control" name="details" placeholder="Task Details">
+      <input type="text" class="form-control" name="details" placeholder="<%= task.details %>">
     </div>
     <div class="form-group">
       <label for="exampleFormControlInput1">Date Due</label>
-      <input type="date" class="form-control" name="dateDue">
+      <input type="date" class="form-control" name="dateDue" placeholder="<%= task.dateDue %>">
     </div>
     <div class="form-group">
       <label for="assignedTo">Assigned To</label>
-      <select class="form-control" type="object" name="assignedTo">
+      <select class="form-control" type="object" name="assignedTo" aria-placeholder="<%= task.assignedTo %>">
         <% users.forEach(user => { %>
         <option value="<%= user._id %>"><%= user.name %></option>
           <% }) %>
@@ -28,7 +28,7 @@
     </div>
     <div class="form-group">
       <label for="matterRef">Task for Matter</label>
-      <select class="form-control" type="object" name="matterRef">
+      <select class="form-control" type="object" name="matterRef" placeholder="<%= task.matterRef %>">
           <% matters.forEach(matter => { %>
             <option value="<%= matter._id %>"><%= matter.title %></option>
               <% }) %>

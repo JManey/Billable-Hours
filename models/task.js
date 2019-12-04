@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 
 const taskSchema = new mongoose.Schema({
-  title: String,
+  heading: String,
   details: String,
   dateDue: Date,
   assignedTo: [{
