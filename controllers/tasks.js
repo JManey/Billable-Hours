@@ -4,28 +4,28 @@ const Task = require('../models/task');
 
 
 module.exports = {
-  // subdocs,
-  // index,
-  // update,
+  index,
+  update,
   new: newTask,
   create,
-  // show,
+  show,
   isLoggedIn,
   isAdmin,
-  // edit,
+  edit,
   
 }
 
 function index(req, res) {
   Task.find({}, function(err, tasks) {
+    // res.send(tasks)
     if(err) res.send()
-    res.render('tasks/index', {title: 'Billable Hours', req, tasks,task: req.task})
+    res.render('tasks/index', {title: 'Billable Hours', req, tasks, task: req.task, user: req.user})
   })
 }
 
 function create(req, res) {
   let task = new Task({
-    Title: req.body.name,
+    heading: req.body.heading,
     details: req.body.details,
     dateDue: req.body.dateDue,
     assignedTo: req.body.assignedTo,
@@ -36,41 +36,12 @@ function create(req, res) {
   task.save().then(
     err => {
     if(err) {
-      return res.redirect('tasks/new')
+      return res.redirect('/tasks/new')
     } else process.exit()
   })
-  res.redirect('/');
+  res.redirect('/tasks');
 }
 
-// function newTask(req, res) {}
-//   let matters = [];
-//   // Client.find({}, ((err, client) => console.log(client.matters))) //returns clients with objects for matters
-//   User.find({}, ((err, users) => {
-//     // console.log(`users from query`, users);
-//   Client.find({}).populate('matters')
-//   .exec(function(err, clients) {
-//     clients.forEach(client => {
-//       console.log('client:******', client)
-//       console.log('*****client:', client.phone)
-//       let mArr = client.matters;
-//       console.log(`mArr`,mArr)
-//       mArr.forEach(matter => {
-//         console.log('one matter:', matter)
-//         matters.push(matter);
-//       })
-//     })
-//     console.log(`matters from query`, clients);
-//     res.render('tasks/new', {
-//       title: "Create Task",
-//       user: req.user,
-//       name: req.query.name,
-//       req,
-//       matters,
-//       users
-//     })
-//   })
-// }
-// ))};
 
 function newTask (req, res) {
   let matters = [];
@@ -95,61 +66,58 @@ function newTask (req, res) {
       }
       )}
 
+// show function
+function show(req, res) {
+  Task.findById(req.params.id).populate('assignedTo').exec((err, task) => {
+    let matterID =task.matterRef[0];
+    Client.findOne({"matters._id": matterID}, function(err, client) {
+      let matter = client.matters.id(matterID);
+console.log(matter.title);
+        // return matter;
+        res.render('tasks/show', {matter, task,user: req.user, title: "View Task"})
+      })
+    })
+  }
 
+function edit(req, res) {
+  console.log('hello', req.params.id)
+  console.log(`**************************************
+  **************************`)
+  Task.findById(req.params.id).populate('assignedTo').exec((err, task) => {
+    let matterID =task.matterRef[0];
+    Client.findOne({"matters._id": matterID}, function(err, client) {
+      let matter = client.matters.id(matterID);
+      User.find({}).then(users => {
+        console.log(users)
+        res.render('tasks/edit', {matter, users, task, user: req.user, title: "Edit Task"})        
 
+      })
+      } 
+    )
+  })
+};
 
-
-
-
-// function show(req, res) {
-//   let id = req.params.id;
-//   Client.findOne({"matters._id": id}, function(err, client) {
-//     let mattersArr = client.matters;
-//     mattersArr.forEach(matter => {
-//       if(matter._id == id) {
-//         res.render('matters/show', { title: 'Details', matter, user: req.user});
-        
-//       } else return;
-//     })
-//   })
-// };
-
-// function edit(req, res) {
-//   let id = req.params.id;
-//   console.log(req.params.id)
-//   Client.findOne({"matters._id": id}, function(err, client) {
-//     let mattersArr = client.matters;
-//     mattersArr.forEach(matter => {
-//       if(matter._id == id) {
-//         console.log(matter)
-//         res.render('matters/edit', { title: 'Edit', matter, user: req.user});
-        
-//       } else return;
-//     })
-//   })
-// };
-
-// function update(req, res) {
-//   let id = req.params.id;
-//   Client.findOne({"matters._id": id}, function(err, client) {
-//     let mattersArr = client.matters;
-//     mattersArr.forEach((matter, idx) => {
-//       if(matter._id == id) {
-//         req.body._id = id;
+function update(req, res) {
+  let id = req.params.id;
+  Client.findOne({"matters._id": id}, function(err, client) {
+    let mattersArr = client.matters;
+    mattersArr.forEach((matter, idx) => {
+      if(matter._id == id) {
+        req.body._id = id;
       
-//         client.matters[idx]._id = id,
-//         client.matters[idx].title = req.body.title,
-//         client.matters[idx].dateInit = req.body.dateInit,
-//         client.matters[idx].caseNo = req.body.caseNo,
-//         client.matters[idx].details = req.body.details,
-//         client.matters[idx].dateClosed = req.body.dateClosed,
-//          client.save().then(
-//           res.redirect('/clients')
-//         )
-//       }
-//     })
-//   })
-// }
+        client.matters[idx]._id = id,
+        client.matters[idx].title = req.body.title,
+        client.matters[idx].dateInit = req.body.dateInit,
+        client.matters[idx].caseNo = req.body.caseNo,
+        client.matters[idx].details = req.body.details,
+        client.matters[idx].dateClosed = req.body.dateClosed,
+         client.save().then(
+          res.redirect('/clients')
+        )
+      }
+    })
+  })
+}
 
 
 
@@ -163,7 +131,7 @@ function newTask (req, res) {
 
 function isLoggedIn(req, res, next){
   if (req.isAuthenticated()) return next()
-  console.log('user logged in')
+  // console.log('user logged in')
   //if not logged in redirect to login
   res.redirect('/auth/google')
 }
