@@ -67,9 +67,10 @@ function update(req, res) {
 };
 
 function deleteClient(req, res) {
+  console.log(req.params.id)
   Client.findByIdAndDelete(
-    req.params.id)
-    .then(function(err, client) {
+    req.params.id, function(err, client) {
+      console.log(client)
     res.redirect('/clients')
   })
 }

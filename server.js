@@ -45,8 +45,8 @@ app.use(methodOverride('_method'))
    //  routes   //
 app.use('/tasks', tasksRouter);
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/clients', clientsRouter);
+app.use('/users', usersRouter);
 app.use('/clients', mattersRouter);
 
 

@@ -23,7 +23,13 @@
 
     <a href="/clients/<%= client._id %>/matters/new" class="btn submit mt-2 btn-outline-light">New Matter</a>
 
-    <button class ="btn btn-danger btn-outline-light mt-2" type="submit"><form action="/clients/<%= client._id %>?_method=DELETE" method="POST" class="">Remove Client</button>
+
+    
+    <form action="/clients/<%= client._id %>?_method=DELETE" method="POST">
+      <input id="rmClient" type="submit" class="btn btn-danger btn-outline-light" value="Remove Client" width="100%">
+      </form>
+        
+     
     
   </div>
 </div>

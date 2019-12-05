@@ -21,7 +21,7 @@
 
     <a href="/users/<%= user._id %>/edit" class="btn btn-outline-light submit">Edit User</a>
 
-    <form action="/users/<%= user._id %>?_method=DELETE" method="POST" class="btn btn-danger"><button class ="btn btn-danger" type="submit">Remove User</button>
+    <form action="/users/<%= user._id %>?_method=DELETE" method="POST"> <input id="rmClient" type="submit" class="btn btn-danger btn-outline-light" value="Remove User" width="100%">
     
 </div>
       
