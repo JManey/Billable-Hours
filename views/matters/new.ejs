@@ -1,9 +1,10 @@
 <% include ../partials/header.ejs %>
 
 <h1 class="text-center">Enter New Matter</h1>
+<hr>
 
 <div class="row justify-content-center">
-<div class="card text-center bg-secondary p-2" style="width: 28rem;">
+<div class="card text-center tan p-2" style="width: 28rem;">
 <form action="/clients/<%= client._id %>/matters" method="POST">
     <div class="form-group">
       <label for="title">Title: </label>
@@ -22,7 +23,7 @@
       <input type="text" class="form-control" name="details" placeholder="Enter Details.">
     </div>
       <input type="submit"
-       class="btn btn-outline-light">
+       class="btn btn-outline-light submit">
     
     
   </form>

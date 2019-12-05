@@ -2,27 +2,28 @@
 
 
 <h1 class="text-center">Client Details</h1>
+<hr>
 
 <div class="row justify-content-center">
-<div class="card " style="width: 28rem;">
+<div class="card tan" style="width: 28rem;">
   <div>
-    <h5 class="card-title text-center mt-2"><%= client.name %></h5>
+    <h5 class="card-title btn-outline-light text-center mt-2"><%= client.name %></h5>
   </div>
   <ul class="list-group list-group-flush">
     <li class="card-text mt-2 ml-4">Address: <%= client.address %></li>
     <li class="card-text mt-2 ml-4">Phone:    <%= client.phone %></li>
     <li class="card-text mt-2 ml-4">Email:  <%= client.email %></li>
     <% client.matters.forEach(function(matter) { %>
-      <a href="/clients/matters/<%= matter._id %>" class="btn btn-info mt-2 p-3"><li class="form-control">Matter:  <%= matter.title %></li></a>
+      <a href="/clients/matters/<%= matter._id %>" class="btn submit btn-outline-light mt-2 p-3"><li class="">Matter:  <%= matter.title %></li></a>
     <% }); %>
   </ul>
 
 
-    <a href="/clients/<%= client._id %>/edit" class="btn btn-info mt-2">Edit Client</a>
+    <a href="/clients/<%= client._id %>/edit" class="btn btn-outline-light submit mt-2">Edit Client</a>
 
-    <a href="/clients/<%= client._id %>/matters/new" class="btn btn-info mt-2">New Matter</a>
+    <a href="/clients/<%= client._id %>/matters/new" class="btn submit mt-2 btn-outline-light">New Matter</a>
 
-    <button class ="btn btn-danger mt-2" type="submit"><form action="/clients/<%= client._id %>?_method=DELETE" method="POST" class="">Remove Client</button>
+    <button class ="btn btn-danger btn-outline-light mt-2" type="submit"><form action="/clients/<%= client._id %>?_method=DELETE" method="POST" class="">Remove Client</button>
     
   </div>
 </div>

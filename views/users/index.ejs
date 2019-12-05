@@ -6,12 +6,12 @@
 
 <div class="row justify-content-center">
 <% users.forEach(function(user) { %>
-    <div class="card m-2" style="width: 18rem;">
+    <div class="card m-2 tan" style="width: 18rem;">
       <img src="<%=  user.avatar %>" class="card-img-top" alt="user image">
       <div class="card-body">
         <h5 class="card-title text-center"> <%= user.name %> </h5>
       </div>
-      <a href="users/<%= user._id %>" class="btn btn-info">View</a>
+      <a href="users/<%= user._id %>" class="btn btn-outline-light submit">View</a>
     </div>
     <% }); %>
   </div>

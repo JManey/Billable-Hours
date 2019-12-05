@@ -9,3 +9,13 @@ body {
 a {
   color: #00B7FF;
 }
+.tan {
+  background-color:#cdc88a;
+}
+.submit{
+  background-color: rgb(247, 239, 11);
+  color: black;
+}
+li{
+  list-style: none; 
+}

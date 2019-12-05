@@ -2,9 +2,10 @@
 
 
 <h1 class="text-center">Matter Details</h1>
+<hr>
 
 <div class="row justify-content-center">
-<div class="card" style="width: 28rem;">
+<div class="card tan" style="width: 28rem;">
   <div>
     <h5 class="card-title text-center ml-4"><%= matter.title %></h5>
   </div>
@@ -17,7 +18,7 @@
       <% } %>
     <li class="card-text mt-2 ml-4">Details:  <%=matter.details %></li>
   </ul>
-    <a href="/clients/matters/<%= matter._id %>/edit" class="btn btn-info mt-2">Edit Matter</a>
+    <a href="/clients/matters/<%= matter._id %>/edit" class="btn submit btn-outline-light mt-2">Edit Matter</a>
 
     
   </div>

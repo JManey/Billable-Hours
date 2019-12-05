@@ -27,7 +27,7 @@ User Stories:
 6. AAU I want to be able to pull up a list of clients and see their associated matters.
 7. AAU I would like a settings option to change user access levels and maybe some other app settings.
 
-
+[Link to Trello](https://trello.com/b/xIhxUSNh/billable-hours)
 
 Starter ERD:
 <img src="https://i.imgur.com/pb28IwQ.png" width="400">

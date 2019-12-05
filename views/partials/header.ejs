@@ -9,7 +9,7 @@
   </head>
   <body class="p-0 bg-gradient-info">
 
-      <nav class="navbar sticky-top navbar-expand-sm navbar-light bg-secondary m-0">
+      <nav class="navbar sticky-top navbar-expand-sm navbar-light m-0 tan">
           
           <button class="navbar-toggler btn-outline-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon btn-outline-light"></span>
@@ -49,10 +49,13 @@
                 </li>
             </ul>
           </div>
+          <div>
+            <img src="<%=  user.avatar %>" width="70" height="70">
+          </div>
           <% if (user) { %>
-            <a href="/logout" class="btn btn-outline-danger" width="35"> Logout </a>
+            <a href="/logout" class="btn btn-outline-danger ml-2" width="35"> Logout </a>
           <% } else { %>
-            <a href="/auth/google" class="btn btn-outline-light" width="35">Login with Google</a>
+            <a href="/auth/google" class="btn btn-outline-light ml-2" width="35">Login with Google</a>
           <% } %>
             
 

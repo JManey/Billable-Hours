@@ -2,9 +2,10 @@
 
 
 <h1 class="text-center">User Details</h1>
+<hr>
 
 <div class="row justify-content-center">
-<div class="card" style="width: 28rem;">
+<div class="card tan" style="width: 28rem;">
   <img src="<%=  user.avatar %>" class="card-img-top" alt="user image">
   <div class="card-body">
     <h5 class="card-title form-control text-center"><%= user.name %></h5>
@@ -17,14 +18,11 @@
     <li class="form-control">Pay Rate:     <%=user.payRate %></li>
     <li class="form-control">Admin:    <%=user.isAdmin %></li>
   </ul>
-  <div class="card-body">
-    <a href="/users/<%= user._id %>/edit" class="btn btn-info">Edit User</a>
 
-    <form action="/users/<%= user._id %>?_method=DELETE" method="POST" class=""><button class ="btn btn-danger" type="submit">Remove User</button>
+    <a href="/users/<%= user._id %>/edit" class="btn btn-outline-light submit">Edit User</a>
+
+    <form action="/users/<%= user._id %>?_method=DELETE" method="POST" class="btn btn-danger"><button class ="btn btn-danger" type="submit">Remove User</button>
     
-      
-    
-  </div>
 </div>
       
     </tbody>
